@@ -1,10 +1,14 @@
 import React, { useState } from "react"; 
 import { Link } from "react-router-dom";
-import Logo from "../images/Group 1.png";
+import Logo from "../images/Group 1.png"; 
+import Image from "../images/Group 2.png"
 import { Menu, X } from "lucide-react"; 
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);  
+  const handleNavClick = () => {
+    setIsOpen(false)
+  }
 
   return (
     <div>
@@ -13,7 +17,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <div>
-              <img src={Logo} alt="logo" className="w-32 md:w-40 lg:w-48 h-auto" />
+              <img src={Image} alt="logo" className="w-32 md:w-40 lg:w-48 h-auto" />
             </div>
 
             {/* Menu Toggle Button */}
@@ -38,12 +42,12 @@ const Navbar = () => {
       {isOpen && (
         <div className="fixed inset-0 bg-[#FFF5E1] flex flex-col justify-center items-center  text-black font-semibold font-roboto">
           <ul className="text-lg space-y-6">
-          <li className="cursor-pointer hover:text-gray-200"><Link to='/'>Home</Link></li>
-              <li className="cursor-pointer hover:text-gray-200"><Link to='/about'>About</Link></li>
-              <li className="cursor-pointer hover:text-gray-200"><Link to='/search'>Search for Recipes</Link></li>
-              <li className="cursor-pointer hover:text-gray-200"><Link to='/favorites'>Favorites</Link></li>
-              <li className="cursor-pointer hover:text-gray-200"><Link to='/contact'>Contact</Link></li> 
-              <li className="cursor-pointer hover:text-gray-200"><Link to='/privacy'>PrivacyPolicy</Link></li>
+          <li className="cursor-pointer hover:text-gray-200"><Link to='/' onClick={handleNavClick}>Home</Link></li>
+              <li className="cursor-pointer hover:text-gray-200"><Link to='/about' onClick={handleNavClick}>About</Link></li>
+              <li className="cursor-pointer hover:text-gray-200"><Link to='/search' onClick={handleNavClick}>Search for Recipes</Link></li>
+              <li className="cursor-pointer hover:text-gray-200"><Link to='/favorites' onClick={handleNavClick}>Favorites</Link></li>
+              <li className="cursor-pointer hover:text-gray-200"><Link to='/contact' onClick={handleNavClick}>Contact</Link></li> 
+              <li className="cursor-pointer hover:text-gray-200"><Link to='/privacy' onClick={handleNavClick}>PrivacyPolicy</Link></li>
           </ul>
 
           {/* Close Menu Button */}
